@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h1 class='text-center'>Nouveau Combat !</h1>
+  <%= simple_form_for @fight do |f| %>
+    <% if @fight.errors.any? %>
+      <ul>
+        <% @fight.errors.full_messages.each do |message| %>
+          <li class="error"><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div class="row center" style="margin-bottom: 20px;">
+      <% number = 0 %>
+      <div class="d-flex form-container">
+        <%= f.simple_fields_for :players do |player_form| %>
+          <% number += 1 %>
+          <div class="d-flex flex-column">
+            <h2>Joueur <%= number %></h2>
+            <div class="field">
+              <p>Combattant</p>
+              <%= player_form.collection_select :character_id, Character.all, :id, :name %>
+            </div>
+            <div class="field">
+              <p>Arme</p>
+              <%= player_form.collection_select :weapon_id, Weapon.all, :id, :name %>
+            </div>
+            <div class="field">
+              <p>Bouclier</p>
+              <%= player_form.collection_select :shield_id, Shield.all, :id, :name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="text-center">
+        <%= f.submit 'Combattre !', class: 'btn btn-flat btn-danger'%>
+      </div>
+    </div>
+  <% end %>
+</div>

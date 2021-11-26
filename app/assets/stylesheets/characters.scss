@@ -1,0 +1,42 @@
+// Place all the styles related to the characters controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+  text-decoration: none;
+}
+
+.characters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.character {
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+  img {
+    border-radius: 50%;
+  }
+
+}
+
+.character-show {
+  margin:100px;
+}
+
+.button-wrapper {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-evenly;
+}
+

@@ -1,0 +1,31 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+        <h1 class="mb-5">Ajoute ton Combattant</h1>
+          <%= simple_form_for(@character) do |f| %>
+                  <% if @character.errors.any? %>
+                    <ul>
+                      <% @character.errors.full_messages.each do |message| %>
+                        <li class="Erreur"><%= message %></li>
+                      <% end %>
+                    </ul>
+                  <% end %>
+              <%= f.input :name , label: "Nom"  %>
+              <%= f.input :life , label: "Nombre de point de vie"  %>
+              <%= f.input :attack , label: "Capacité d'attaque"  %>
+              <%= f.input :speed , label: "Capacité de vitesse"  %>
+              <%= f.input :photo, as: :file %>
+
+              <br>
+            <div class="text-center">
+              <%= f.submit 'Enregistrer le combattant' , :class => "btn btn-flat"  %>
+            </div>
+          <% end %>
+    </div>
+  </div>
+  <div class=" d-flex justify-content-center">
+     <%= link_to "Accueil", root_path, class: 'btn btn-flat mt-2' %>
+  </div>
+</div>
+
+

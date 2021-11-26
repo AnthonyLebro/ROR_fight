@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="text-center mt-5 mb-5">Liste des Combattants disponibles</h1>
+  <div class="characters">
+
+      <% @characters.each do |character| %>
+          <%= link_to character_path(character) do %>
+            <div class="character text-center p-4">
+              <% if  character.photo.attached? %>
+                <%= cl_image_tag character.photo.key, height: 60, width: 60, crop: :fill %>
+                <p> <%= character.name %> </p>
+                <%= "❤️ #{character.life} | ⚔️ #{character.attack} | ⚡ #{character.speed}" %>
+              <% else %>
+                <%= image_tag "skull.png", height: 70, width: 70, crop: :fill %>
+                <p> <%= character.name %> </p>
+                <%= " ❤️ #{character.life} | ⚔️ #{character.attack} | ⚡ #{character.speed}" %>
+              <% end %>
+            </div>
+          <% end %>
+
+      <% end %>
+
+  </div>
+<div class="container">
+  <div class=" d-flex justify-content-center">
+     <%= link_to "Ajouter Un Combattant", new_character_path, class: 'btn btn-flat mt-5' %>
+  </div>
+
+  <div class=" d-flex justify-content-center">
+     <%= link_to "Combat !", new_fight_path, class: 'btn btn-flat btn-danger mt-2' %>
+  </div>
+
+  <div class=" d-flex justify-content-center">
+     <%= link_to "Accueil", root_path, class: 'btn btn-flat mt-2' %>
+  </div>
+  </div>
+</div>

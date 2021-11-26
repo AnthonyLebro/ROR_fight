@@ -1,0 +1,44 @@
+
+form{
+  background-color: #F6F6F6;
+  padding: 5px 20px 10px 20px;
+}
+
+.form{
+  margin-top: 30px;
+  & label, p {
+    color: white !important;
+  }
+}
+
+.error {
+  color: red;
+}
+
+.error-message{
+  color: white;
+}
+
+.field{
+  margin-top: 15px;
+}
+
+form{
+  background-color: #F6F6F6;
+  border-radius: 8px;
+  padding: 30px 30px 30px 30px;
+}
+
+.form-container{
+    justify-content: space-between;
+    width: 100%;
+    margin: 100px 300px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,43 @@
+
+<div class="container">
+  <div class="fighters d-flex">
+    <%= link_to character_path(@fight.players[0].character) do %>
+      <div class="character p-5">
+        <% if  @fight.players[0].character.photo.attached? %>
+          <%= cl_image_tag @fight.players[0].character.photo.key, height: 50, width: 50, crop: :fill %>
+        <% else %>
+          <%= image_tag "skull.png", height: 50, width: 50, crop: :fill %>
+        <% end %>
+        <p> <%= @fight.players[0].character.name  %> </p>
+      </div>
+    <% end %>
+    <%= link_to character_path(@fight.players[1].character) do %>
+      <div class="character p-5">
+        <% if  @fight.players[1].character.photo.attached? %>
+          <%= cl_image_tag @fight.players[1].character.photo.key, height: 50, width: 50, crop: :fill %>
+        <% else %>
+          <%= image_tag "skull.png", height: 50, width: 50, crop: :fill %>
+        <% end %>
+        <p> <%= @fight.players[1].character.name  %> </p>
+      </div>
+    <% end %>
+  </div>
+  <div class="fight-details-container mb-5">
+    <h2 class="text-center mb-5">Détail du match</h2>
+    <% @fight.fight_logs.each do |fight_log| %>
+      <p class="fight-details text-center"> <%= fight_log.move_description %> </p>
+    <% end %>
+  </div>
+
+
+
+  <div class="row d-flex justify-content-center">
+    <div class="text-center">
+      <%= link_to "Accueil", root_path, class: 'btn btn-flat mr-5' %>
+    </div>
+    <div class="text-center">
+       <%= link_to "Combattre !", new_fight_path, class: 'btn-danger btn btn-flat' %>
+    </div>
+  </div>
+
+</div>
